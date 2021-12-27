@@ -1,0 +1,279 @@
+/*  Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap');
+
+/*  Icon  */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+
+/* Variables */
+
+$font: 'Lato';
+$primary: #5f27cd;
+
+/*  Configuration Global  */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: $font;
+    font-size: 16px;
+    font-weight: 300;
+    color: #555;
+}
+
+.wrapper {
+    position: absolute;
+    width: 900px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.493);
+    border-radius: 8px;
+}
+
+h1 {
+    position: absolute;
+    margin-top: 30px;
+    left: 40%;
+    font-size: 1.7rem;
+    font-weight: 100;
+    transform: translateX(-40%);
+}
+
+a {
+    display: absolute;
+    margin: 2px;
+    color: $primary;
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-decoration: none;
+    transition: margin 0.3s;
+    &:hover {
+        font-weight: 400;
+        color: #555;
+    }
+    &:visited {
+        color: #555;
+    }
+    &:first-child::after {
+        content: "|";
+        margin: 4px;
+    }
+    &:active {
+        color: rgba($color: #999696, $alpha: 0.3);
+    }
+}
+
+i {
+    display: inline-block;
+    color: $primary;
+    margin-right: 10px;
+    font-size: 1.3rem;
+    line-height: 1;
+    vertical-align: text-top;
+    margin-top: -4px;
+    transition: margin 0.3s;
+}
+
+// Rules page [index.hmtl] //
+.p-nav {
+    padding: 5px;
+    right: 15px;
+}
+
+.text {
+    padding: 55px;
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.important {
+    color: $primary;
+}
+
+//  rolldicegame.html  //
+.score-goal {
+    position: absolute;
+    margin-top: 25px;
+    left: 64%;
+    color: $primary;
+    font-size: 1.8rem;
+    transform: translateX(-60%);
+}
+
+// Panel //
+.player-panel-0,
+.player-panel-1 {
+    float: left;
+    padding: 100px;
+    width: 50%;
+    height: 400px;
+}
+
+.winner {
+    background-color: $primary;
+}
+
+.active {
+    background-color: rgba($color: #999696, $alpha: 0.3);
+}
+
+
+/* Players configuration */
+
+.player-name {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 2.8rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    .active & {
+        font-weight: 300;
+    }
+    .winner & {
+        font-weight: 300;
+        color: #fff;
+    }
+    .active &::after {
+        position: absolute;
+        top: -15px;
+        left: -10px;
+        content: "\2022";
+        font-size: 4rem;
+        color: $primary;
+    }
+}
+
+.player-score {
+    margin-bottom: 40px;
+    font-size: 3rem;
+    font-weight: 300;
+    color: $primary;
+}
+
+.player-current-box {
+    padding: 5px;
+    margin: 0 auto;
+    width: 50%;
+    height: 40%;
+    background-color: $primary;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.player-current-label {
+    margin: 5px 0 2px 0;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.player-current-score {
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+
+/* Input  */
+
+input[type=number] {
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.input-value {
+    position: absolute;
+    height: 30px;
+    width: 80px;
+    top: 65px;
+    right: 20%;
+    border: none;
+    border-bottom: 1px solid #000;
+    font-size: 0.7rem;
+    &:focus {
+        color: $primary;
+        outline: none;
+    }
+    &::placeholder {
+        font-size: 0.5rem;
+        font-weight: 400;
+    }
+}
+
+
+/* Button */
+
+button {
+    position: absolute;
+    display: inline-block;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s;
+    &:hover {
+        font-weight: 400;
+    }
+    &:hover i {
+        margin-right: 20px;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+
+/*  Dice */
+
+.btn-new {
+    left: 19%;
+    top: 70px;
+}
+
+.btn-roll {
+    top: 310px;
+}
+
+.btn-hold {
+    top: 350px;
+}
+
+.btn-set-value {
+    left: 90%;
+    top: 70px;
+}
+
+.dice {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80px;
+    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.dice1 {
+    top: 100px;
+}
+
+.dice2 {
+    top: 195px;
+}
