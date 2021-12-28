@@ -57,13 +57,18 @@ const setValue = () => {
 }
 
 function switchPlayer() {
+    console.log(`activeP: ${activePlayer}`)
     if (activePlayer === 1) {
+        console.log(`activeP 0: ${activePlayer}`)
         activePlayer = 0;
+        console.log(`activeP aft: ${activePlayer}`)
         playerPanel1.classList.toggle('active');
         playerPanel0.classList.toggle('active');
         currentScore1.textContent = 0;
     } else {
         activePlayer = 1;
+
+        console.log(`activeP 1: ${activePlayer}`)
         playerPanel0.classList.toggle('active');
         playerPanel1.classList.toggle('active');
         currentScore0.textContent = 0;
@@ -75,6 +80,7 @@ function switchPlayer() {
 
 const rollDice = () => {
     if (playing) {
+        console.info('Playing' + playing);
         randomNum1 = Math.floor(Math.random() * 6) + 1;
         randomNum2 = Math.floor(Math.random() * 6) + 1;
         randomNum = randomNum1 + randomNum2;
@@ -83,13 +89,13 @@ const rollDice = () => {
         dice1.src = "\\img\\dice" + randomNum1 + ".png";
         dice2.src = "\\img\\dice" + randomNum2 + ".png";
     }
-    console.log(randomNum1, randomNum2);
     if (randomNum1 === 1 || randomNum2 === 1) {
         switchPlayer();
         currentScoreSum = 0;
     } else {
         currentScoreSum += randomNum;
         activePlayer ? currentScore1.textContent = currentScoreSum : currentScore0.textContent = currentScoreSum;
+        console.log(`ternaire ${activePlayer}`);
     }
 }
 
@@ -111,6 +117,7 @@ const holdscore = () => {
         dice1.style.display = 'none';
         dice2.style.display = 'none';
         playing = false;
+        console.log(`playing ${playing}`)
     } else {
         switchPlayer();
     }
@@ -127,4 +134,6 @@ rollBtn.addEventListener('click', rollDice);
 
 holdBtn.addEventListener('click', holdscore);
 
-newGameBtn.addEventListener('click', init());
+newGameBtn.addEventListener('click', () => {
+    init();
+});
